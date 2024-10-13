@@ -11,7 +11,7 @@ services:
       - SUBFOLDER=/ #optional
       - "TITLE=Kali Linux" #optional
     volumes:
-      - /home/docker/kali/config:/config
+      - /"path de guardado"/kali/config:/config
       - /var/run/docker.sock:/var/run/docker.sock #optional
     ports:
       - 3007:3000
