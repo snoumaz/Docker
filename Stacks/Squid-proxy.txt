@@ -5,9 +5,9 @@ services:
     ports:
       - "3131:3131"  # Mapea el puerto 3131 del contenedor al puerto 3131 del host
     volumes:
-      - /home/docker/squid/squid.conf:/etc/squid/squid.conf  # Mapea el archivo de configuración local
-      - /home/docker/squid/cache:/var/spool/squid  # Directorio para el cache de Squid
-      - /home/docker/squid/logs:/var/log/squid  # Directorio para los logs de Squid
+      - /"path de guardado"/squid/squid.conf:/etc/squid/squid.conf  # Mapea el archivo de configuración local
+      - /"path de guardado"/squid/cache:/var/spool/squid  # Directorio para el cache de Squid
+      - /"path de guardado"/squid/logs:/var/log/squid  # Directorio para los logs de Squid
     environment:
       - TZ=Europe/Madrid  # Cambia esta línea según tu zona horaria
     restart: unless-stopped
