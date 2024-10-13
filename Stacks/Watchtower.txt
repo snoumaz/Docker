@@ -1,0 +1,11 @@
+services:
+  watchtower:
+    image: containrrr/watchtower:latest
+    container_name: watchtower
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock  # Necesario para que Watchtower acceda al daemon de Docker
+    environment:
+      - WATCHTOWER_CLEANUP=true  # Elimina imágenes antiguas después de la actualización
+      - WATCHTOWER_POLL_INTERVAL=86400  # Intervalo de actualización (86400s = 1 día)
+    command: --include-restarting --include-stopped  # Opción para monitorear contenedores detenidos o en reinicio

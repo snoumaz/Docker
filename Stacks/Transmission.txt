@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  transmission:
+    image: linuxserver/transmission:latest
+    container_name: transmission
+    restart: unless-stopped
+    ports:
+      - "9091:9091"  # Puerto para la interfaz web de Transmission
+      - "51413:51413"  # Puerto TCP para conexiones BitTorrent
+      - "51413:51413/udp"  # Puerto UDP para conexiones BitTorrent
+    environment:
+      - PUID=1000  # ID de usuario (ajústalo según tu sistema)
+      - PGID=1000  # ID del grupo (ajústalo según tu sistema)
+      - TZ=Europe/Madrid  # Zona horaria (ajústala a tu localización)
+      - TRANSMISSION_WEB_HOME=/combustion-release/  # (Opcional) Usa un tema web mejorado para Transmission
+    volumes:
+      - /home/docker/transmission/config:/config  # Carpeta para almacenar la configuración de Transmission
+      - /mnt/nas/descargas:/downloads  # Carpeta para tus descargas
+      

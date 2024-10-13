@@ -1,0 +1,21 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    restart: always
+    ports:
+      - "8096:8096"  # Puerto de la interfaz web y transmisión sin HTTPS
+      - "8920:8920"  # Puerto para la interfaz HTTPS (opcional)
+    volumes:
+      - /home/docker/jelly/config:/config  # Configuración de Jellyfin
+      - /home/docker/jelly/cache:/cache    # Cache de Jellyfin
+      - /mnt/nas:/media    # Carpeta con tus archivos multimedia
+    environment:
+      - TZ=Europe/Madrid  # Configura la zona horaria según tu ubicación
+    devices:
+      - /dev/dri:/dev/dri  # Para la aceleración por hardware (opcional)
+
+volumes:
+  jellyfin-config:
+  jellyfin-cache:
+   

@@ -1,0 +1,19 @@
+version: "2.1"
+services:
+  airsonic:
+    image: lscr.io/linuxserver/airsonic
+    container_name: airsonic
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+      
+    volumes:
+      - /home/docker/airsonic/config:/config
+      - /mnt/nas/musica:/music
+      - /mnt/nas/musica/playlists:/playlists
+    ports:
+      - 4040:4040
+    devices:
+      - /dev/snd:/dev/snd #optional
+    restart: unless-stopped

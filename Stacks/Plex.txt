@@ -1,0 +1,24 @@
+services:
+  plex:
+    image: linuxserver/plex:latest
+    container_name: plex
+    environment:
+      - PUID=1000      # ID del usuario (ajústalo según tu sistema)
+      - PGID=1000      # ID del grupo (ajústalo según tu sistema)
+      - TZ=Europe/Madrid  # Cambia la zona horaria a la tuya
+    ports:
+      - "32400:32400/tcp"   # Interfaz web de Plex
+      - "3005:3005/tcp"     # Comunicación del servidor Plex
+      - "32469:32469/tcp"   # Servicio Plex DLNA
+      - "1900:1900/udp"     # Para UPnP DLNA
+      - "32410:32410/udp"   # Comunicaciones para DLNA
+      - "32412:32412/udp"   # Comunicaciones para DLNA
+      - "32413:32413/udp"   # Comunicaciones para DLNA
+      - "32414:32414/udp"   # Comunicaciones para DLNA
+    volumes:
+      - /home/docker/plex/config:/config    # Configuración de Plex
+      - /mnt/nas:/series      # Carpeta de series de televisión
+      - /mnt/nas:/pelis    # Carpeta de películas
+      - /home/docker/plex/transcode:/transcode  # Carpeta para archivos de transcodificación
+    restart: always
+    network_mode: "host"
