@@ -15,6 +15,6 @@ services:
       - TZ=Europe/Madrid  # Zona horaria (ajústala a tu localización)
       - TRANSMISSION_WEB_HOME=/combustion-release/  # (Opcional) Usa un tema web mejorado para Transmission
     volumes:
-      - /home/docker/transmission/config:/config  # Carpeta para almacenar la configuración de Transmission
-      - /mnt/nas/descargas:/downloads  # Carpeta para tus descargas
+      - /"path de guardado"/transmission/config:/config  # Carpeta para almacenar la configuración de Transmission
+      - /"path de guardado"/descargas:/downloads  # Carpeta para tus descargas
       
