@@ -6,9 +6,9 @@ services:
     ports:
       - 8001:8000
     volumes:
-      - yacht:/config
+      - /"path de guardado"/yacht/config:/config
       - /var/run/docker.sock:/var/run/docker.sock
-      - /home/yatch/Development/Docker/compose:/compose
+      - /"path de guardado"/yacht/compose:/compose
     environment:
       - PUID=0
       - PGID=0
