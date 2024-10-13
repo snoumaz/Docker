@@ -11,8 +11,8 @@ services:
       - 55415:55415
       - 55416:55416/udp
     volumes:
-      - /mnt/samba/bck/config/urbackup/database:/var/urbackup
-      - /mnt/samba/bck:/backups
+      - /"path de guardado"/urbackup/config/urbackup/database:/var/urbackup
+      - /"path de guardado"/backups:/backups
     environment:
       - PUID=1000
       - PGID=1000
