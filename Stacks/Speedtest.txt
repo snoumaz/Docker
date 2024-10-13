@@ -10,7 +10,7 @@ services:
             - PGID=1000
             - DB_CONNECTION=sqlite
         volumes:
-            - /home/dietpi/docker/speed/config:/config
-            - /home/dietpi/docker/speed/config/key:/config/keys
+            - /"path de guardado"/speed/config:/config
+            - /"path de guardado"/speed/config/key:/config/keys
         image: lscr.io/linuxserver/speedtest-tracker:latest
         restart: unless-stopped
