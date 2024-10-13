@@ -7,9 +7,9 @@ services:
       - "8096:8096"  # Puerto de la interfaz web y transmisión sin HTTPS
       - "8920:8920"  # Puerto para la interfaz HTTPS (opcional)
     volumes:
-      - /home/docker/jelly/config:/config  # Configuración de Jellyfin
-      - /home/docker/jelly/cache:/cache    # Cache de Jellyfin
-      - /mnt/nas:/media    # Carpeta con tus archivos multimedia
+      - /"path de guardado"/jelly/config:/config  # Configuración de Jellyfin
+      - /"path de guardado"/jelly/cache:/cache    # Cache de Jellyfin
+      - /"path de multimedia":/media    # Carpeta con tus archivos multimedia
     environment:
       - TZ=Europe/Madrid  # Configura la zona horaria según tu ubicación
     devices:
