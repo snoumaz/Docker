@@ -16,9 +16,9 @@ services:
       - "32413:32413/udp"   # Comunicaciones para DLNA
       - "32414:32414/udp"   # Comunicaciones para DLNA
     volumes:
-      - /home/docker/plex/config:/config    # Configuración de Plex
-      - /mnt/nas:/series      # Carpeta de series de televisión
-      - /mnt/nas:/pelis    # Carpeta de películas
-      - /home/docker/plex/transcode:/transcode  # Carpeta para archivos de transcodificación
+      - /"path de guardado"/plex/config:/config    # Configuración de Plex
+      - /"path de multimedia"/series:/series      # Carpeta de series de televisión
+      - /"path de multimedia"/pelis:/pelis    # Carpeta de películas
+      - /"path de guardado"/plex/transcode:/transcode  # Carpeta para archivos de transcodificación
     restart: always
     network_mode: "host"
