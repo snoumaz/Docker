@@ -1,6 +1,6 @@
 version: '3.9'
 services:
     cloudflared:
-        command: 'tunnel --no-autoupdate run --token eyJhIjoiNmU0ZTQ3YjExZTIzNzY3MTEyMDU1ZmU0ZWE0NTg0NDQiLCJ0IjoiYjAxMzU3NDYtNTc2OC00ODdiLTk5NTgtNTJkZGY2ZWEwYmM4IiwicyI6Ik16UTFZbUkyTjJNdE5tUmhZaTAwTjJSbExXSXlNVGN0TldWaE5HTXdaVEV3Tm1WbCJ9'
+        command: 'tunnel --no-autoupdate run --token "token de cloudflare"
         image: 'cloudflare/cloudflared:latest'
         restart: unless-stopped
