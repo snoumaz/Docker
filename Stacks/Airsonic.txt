@@ -9,9 +9,9 @@ services:
       - TZ=Europe/Madrid
       
     volumes:
-      - /home/docker/airsonic/config:/config
-      - /mnt/nas/musica:/music
-      - /mnt/nas/musica/playlists:/playlists
+      - /"path de guardado"/airsonic/config:/config
+      - /"path de guardado"/music:/music
+      - /"path de guardado"/musica/playlists:/playlists
     ports:
       - 4040:4040
     devices:
