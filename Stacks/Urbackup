@@ -1,0 +1,10 @@
+services:
+    urbackup-server:
+        container_name: urbackup
+        volumes:
+            - '/"ruta donde guardar"/backups:/backups'
+            - '/"ruta donde guardar"/config/urbackup/database:/var/urbackup'
+        ports:
+            - '55413-55415:55413-55415'
+            - '35623:35623/udp'
+        image: uroni/urbackup-server
