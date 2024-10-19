@@ -1,2 +1,2 @@
-Repositorio que contien sh de instalacion de docker y docker compose.
-Tambien stacks = docker-compose.yml de diferentes aplicativos
+Repositorio que contiene sh de instalacion de docker y docker compose.
+Tambien stacks en txt = docker-compose.yml de diferentes aplicativos
