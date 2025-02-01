@@ -1,0 +1,19 @@
+services:
+  libreoffice:
+    image: lscr.io/linuxserver/libreoffice:latest
+    container_name: libreoffice
+    security_opt:
+      - seccomp:unconfined #optional
+    environment:
+      - PUID=0 # identificador de usuario
+      - PGID=0 # identificador de grupo
+      - TZ=Europe/Madrid # zona horaria 
+    volumes:
+      - /"path de guardado"/libreoffice/config:/config # path de guardado de la configuracion de libreoffice
+      - /"path de guardado"/descargas:/root/docs # path de guardado de los documentos creados o editos
+    ports:
+      - 4000:3000 # puerto de http
+      - 4001:3001 # puerto de https
+    restart: unless-stopped # para cuando no está en uso
+    cap_add:
+      - SYS_ADMIN # para poder crear y editar documentos en modo administrador
