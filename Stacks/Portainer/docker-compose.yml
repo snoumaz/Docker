@@ -7,5 +7,5 @@ services:
     restart: always
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /home/docker/portainer/portainer_data:/data
+      - /"path de guardado"/portainer/portainer_data:/data
     image: portainer/portainer-ce:latest
