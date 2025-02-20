@@ -1,0 +1,10 @@
+  spotdl:
+    container_name: spotdl
+    image: spotdl/spotify-downloader
+    restart: unless-stopped
+    command: web --host 0.0.0.0 --web-use-output-dir --keep-alive --format mp3
+    volumes:
+      - /path/to/your/download/folder:/music:wr
+      #example: - /volume1/docker/spotdl/downloads:/music:wr#
+    ports:
+      - 8800:8800
