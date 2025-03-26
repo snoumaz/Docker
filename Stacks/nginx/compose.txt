@@ -1,0 +1,10 @@
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "98:80"
+    volumes:
+      - /host/path/nginx/html:/usr/share/nginx/html:ro
+      - /host/path/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+     
+    restart: always
