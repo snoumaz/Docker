@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  web:
+    image: httpd:2.4
+    container_name: apache
+    ports:
+      - "${PORT:-8080}:80"
+    volumes:
+      # Contenido del sitio
+      - type: bind
+        source: .
+        target: /usr/local/apache2/htdocs
+        consistency: cached
+      # .htaccess
+      - type: bind
+        source: ./config/apache/.htaccess
+        target: /usr/local/apache2/htdocs/.htaccess
+        consistency: cached
+    environment:
+      - TZ=Europe/Madrid
+    command: >
+      /bin/sh -c "
+        sed -i 's/^#LoadModule rewrite_module/LoadModule rewrite_module/' /usr/local/apache2/conf/httpd.conf &&
+        sed -i 's/^#LoadModule deflate_module/LoadModule deflate_module/' /usr/local/apache2/conf/httpd.conf &&
+        sed -i 's/^#LoadModule headers_module/LoadModule headers_module/' /usr/local/apache2/conf/httpd.conf &&
+        sed -i 's/^#LoadModule expires_module/LoadModule expires_module/' /usr/local/apache2/conf/httpd.conf &&
+        sed -i 's/\^\s*AllowOverride\s\+None/    AllowOverride All/' /usr/local/apache2/conf/httpd.conf &&
+        httpd-foreground
+      "
+    restart: always
+    healthcheck:
+      test: ["CMD", "ls", "/usr/local/apache2/htdocs/index.html"]
+      interval: 20s
+      timeout: 5s
+      retries: 2
+      start_period: 10s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
